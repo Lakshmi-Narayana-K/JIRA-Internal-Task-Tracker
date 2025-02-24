@@ -1,0 +1,107 @@
+[
+  {
+    "name": "createTask",
+    "description": "Create a new task with title, description, and assignees extracted from meeting follow-up tasks.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the task to create."
+        },
+        "description": {
+          "type": "string",
+          "description": "The detailed description of the task."
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of assignees for the task, extracted from the meeting summary."
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "assignees"
+      ]
+    }
+  },
+  {
+    "name": "updateTask",
+    "description": "Update an existing task's status in JIRA.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the task to update."
+        },
+        "status": {
+          "type": "string",
+          "description": "The new status for the task. Accepted values: 'inProgress' or 'done'."
+        }
+      },
+      "required": [
+        "title",
+        "status"
+      ]
+    }
+   },
+  {
+    "name": "deleteTask",
+    "description": "Delete an existing task in JIRA.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the task to delete."
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  },
+  {
+    "name": "queryTask",
+    "description": "Query information for an existing task in JIRA by title.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title or a partial title of the task to query."
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  },
+  {
+  "name": "listTasks",
+  "description": "List current tasks in JIRA filtered by status and/or assignee. If no filters are provided, defaults to tasks in 'To Do' and 'In Progress'. Supports pagination.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "statuses": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Optional list of statuses to filter tasks. Example: [\"To Do\", \"In Progress\"]"
+      },
+      "assignee": {
+        "type": "string",
+        "description": "Optional assignee name to filter tasks."
+      },
+      "startAt": {
+        "type": "number",
+        "description": "Optional start index for pagination (default is 0)."
+      }
+    }
+  }
+}
+
+]
