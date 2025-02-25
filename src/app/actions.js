@@ -375,6 +375,7 @@ async function listTasks(context, state, parameters) {
       message += `**Created     :** ${created}\n\n`;
     }
 
+    await context.sendActivity(message);
     return message;
   } catch (error) {
     console.error("Error listing tasks from JIRA:", error);
