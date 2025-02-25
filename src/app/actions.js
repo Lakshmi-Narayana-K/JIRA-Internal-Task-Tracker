@@ -366,16 +366,16 @@ async function listTasks(context, state, parameters) {
         ? new Date(fields.created).toLocaleString()
         : "Unknown";
 
-      message += `**Issue Key   :** ${key}\n`;
-      message += `**Summary     :** ${summary}\n`;
-      message += `**Status      :** ${status}\n`;
-      message += `**Priority    :** ${priority}\n`;
-      message += `**Assignee    :** ${assignee}\n`;
-      message += `**Reporter    :** ${reporter}\n`;
-      message += `**Created     :** ${created}\n\n`;
+      message += `**Issue Key   :** ${key}\n\n`;
+      message += `**Summary     :** ${summary}\n\n`;
+      message += `**Status      :** ${status}\n\n`;
+      message += `**Priority    :** ${priority}\n\n`;
+      message += `**Assignee    :** ${assignee}\n\n`;
+      message += `**Reporter    :** ${reporter}\n\n`;
+      message += `**Created     :** ${created}\n\n --- \n\n`;
     }
 
-    await context.sendActivity(message);
+    // await context.sendActivity(message);
     return message;
   } catch (error) {
     console.error("Error listing tasks from JIRA:", error);
