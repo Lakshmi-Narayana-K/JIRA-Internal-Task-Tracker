@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "./env/.env.local" });
+require("dotenv").config({ path: "./env/.env.dev" });
 
 const config = {
   MicrosoftAppId: process.env.BOT_ID,
